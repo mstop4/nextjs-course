@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 
-class Index extends React.Component {
+class Sessions extends React.Component {
 
   static async getInitialProps() {
     var promise = axios.get('http://localhost:4000/sessions')
@@ -57,4 +57,4 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+export default Sessions
