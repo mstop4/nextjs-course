@@ -1,16 +1,14 @@
-// const rootElement = document.getElementById('app');
+// const myReactElement = React.createElement('h1',
+//   {className: 'orange'},
+//   'Hello From Pluralsight and React');
 
-// const myElement = document.createElement('h1');
-// myElement.className = "orange";
-// myElement.innerText = 'Hello From Pluralsight';
-
-const myReactElement = React.createElement('h1',
-  {className: 'orange'},
-  'Hello From Pluralsight and React');
-
-// rootElement.appendChild(myElement);
+const Hello = () => {
+  return React.createElement('h1',
+    {className: 'orange'},
+    'Hello From Pluralsight and React');
+};
 
 ReactDOM.render(
-  myReactElement,
+  React.createElement(Hello, {}, null),
   document.getElementById('app')
 );
