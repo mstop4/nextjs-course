@@ -5,6 +5,7 @@ import Link from 'next/link';
 class Index extends React.Component {
 
   static async getInitialProps() {
+<<<<<<< HEAD
     var promise = axios.get('http://localhost:4000/sessions')
       .then(response => {
         return {
@@ -13,13 +14,24 @@ class Index extends React.Component {
         };
       })
 
+=======
+    var promise = axios.get('http://localhost:4000/sessions').then(response => {
+      return {
+        hasErrored: false,
+        sessionData: response.data
+      };
+    })
+>>>>>>> af5190917d5215a4702f9a974f503e37a5a913e1
       .catch(error => {
         return {
           hasErrored: true,
           message: error.message
         }
       });
+<<<<<<< HEAD
       
+=======
+>>>>>>> af5190917d5215a4702f9a974f503e37a5a913e1
     return promise;
   }
 
