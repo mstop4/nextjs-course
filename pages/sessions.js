@@ -5,11 +5,11 @@ import Link from 'next/link';
 class Index extends React.Component {
 
   static async getInitialProps() {
-    let promise = axios.get('http://localhost:4000/speakers')
+    var promise = axios.get('http://localhost:4000/sessions')
       .then(response => {
         return {
           hasErrored: false,
-          speakerData: response.data
+          sessionData: response.data
         };
       })
 
@@ -17,9 +17,9 @@ class Index extends React.Component {
         return {
           hasErrored: true,
           message: error.message
-        };
+        }
       });
-
+      
     return promise;
   }
 
@@ -28,7 +28,7 @@ class Index extends React.Component {
     this.state = {
       hasErrored: props.hasErrored,
       message: props.message,
-      speakerData: props.speakerData
+      sessionData: props.sessionData
     }
   }
 
@@ -41,20 +41,20 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <Link href='/sessions'>
-          <a>SESSIONS</a>
+        <Link href='/'>
+          <a>SPEAKERS</a>
         </Link>
-        
+
         <ul>
-          {this.state.speakerData.map(speaker => 
-            <li key={speaker.id}>
-              {speaker.firstName} {speaker.lastName}
+          {this.state.sessionData.map((session) =>
+            <li key={session.id}>
+              {session.title} {session.id}
             </li>
           )}
         </ul>
       </div>
     )
   }
-};
+}
 
-export default Index;
+export default Index
