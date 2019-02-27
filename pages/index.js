@@ -4,9 +4,17 @@ import DigitalClock from "../src/DigitalClock";
 class Index extends React.Component {
 
   static async getInitialProps() {
-    return ({
-      time: new Date().toISOString()
+    // return ({
+    //   time: new Date().toISOString()
+    // });
+    
+    const promise = new Promise((resolve, reject) => {
+      setInterval(() => { resolve ({
+        time: new Date().toISOString()
+      }) }, 3000);
     });
+
+    return promise;
   }
 
   constructor(props) {
